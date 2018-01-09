@@ -81,11 +81,27 @@ var render = (function(){
         }
     };
 
+    function underlineText(editor) {
+      var cm = editor.codemirror;
+      var output = '';
+      var selectedText = cm.getSelection();
+      var text = selectedText || 'placeholder';
+
+      output = '_' + text + '_';
+      cm.replaceSelection(output);
+    }
+
     render.mde = function (element) {
         var SimpleMDE = require('simplemde');
         return new SimpleMDE({
             element: element,
             toolbar: [
+                {
+                  name: "underlineText",
+                  action: underlineText,
+                  className: "fa fa-underline", // Look for a suitable icon
+                  title: "Underline text (Ctrl/Cmd-Alt-R)",
+                },
                 'bold', 'italic', 'heading', '|',
                 'quote', 'unordered-list', 'ordered-list', '|',
                 'table', 'horizontal-rule', '|',

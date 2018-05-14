@@ -121,6 +121,7 @@ class SignupController extends AbstractController
                 // get public users username and org
                 try {
                     $from_email = $this->mailFromEmail;
+                    $from_email_array = array($from_email => 'Org Super User')
                     $command = new SendAdminNotificationEmailCommand($from_email, $targetUser->getUsername(), $targetUser->getOrg()->getName());
                     $this->sendCommand($command);
                 } catch (\Swift_RfcComplianceException $e) {

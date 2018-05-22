@@ -36,5 +36,13 @@ If applicable, add screenshots to help explain your problem.
 
 #### If you are able to report the URL where an error happened or output from the dev console please do so.
 
+### Additional acceptance criteria tests
+```gherkin
+Scenario:  
+Given 
+When 
+Then 
+```
+
 ### Additional context
 Add any other context about the problem here.
